@@ -84,7 +84,6 @@ os.system('echo "Hola " "$5"')
 # EJecuto desde python3 los comandos de bash
 print("Operaciones mixtas")
 
-# Operaciones mixtas
 os.system('echo "Hola " "Hola " "Hola " "Hola " "Hola "')
 os.system('echo "Hola " "Hola " "Hola " "Hola " "Hola " "Hola " "Hola "')
 
@@ -92,11 +91,7 @@ my_float = float(os.popen("echo '2.5 * 2' | bc").read().strip())
 my_int = int(my_float)
 
 holas = " ".join(["Hola" for i in range(my_int)])
-os.system(f'echo "Hola " {holas}')
-
-
-# ///////////////////////////////////////////////# 
-# ///////////////////////////////////////////////
+os.system(f'echo "Hola " "{holas}"')
 
 
 # EJecuto desde python3 los comandos de bash
@@ -121,16 +116,26 @@ os.system('test 3 -ne 4 && echo "0" || echo "1"')
 
 print("Operaciones con cadenas de texto")
 
+# DOS FALLOS
 # Operaciones con cadenas de texto
-os.system('test "Hola" \> "Python" && echo "0" || echo "1"')
-os.system('test "Hola" \< "Python" && echo "0" || echo "1"')
-os.system('test "aaaa" \>= "abaa" && echo "0" || echo "1"')
-os.system('test $(echo -n "aaaa" | wc -c) -ge $(echo -n "abaa" | wc -c) && echo "0" || echo "1"')
-os.system('test "Hola" \<= "Python" && echo "0" || echo "1"')
-os.system('test "Hola" == "Hola" && echo "0" || echo "1"')
-os.system('test "Hola" != "Python" && echo "0" || echo "1"')
+# os.system('[ \'Hola\' \> \'Python\' ] && echo \'1\' || echo \'0\'')
+# os.system('[ \'Hola\' \< \'Python\' ] && echo \'0\' || echo \'1\'')
+# os.system('[ \'aaaa\' \>= \'abaa\' ] && echo \'1\' || echo \'0\'')
+# os.system('[ $(echo -n \'aaaa\' | wc -c) -ge $(echo -n \'abaa\' | wc -c) ] && echo \'0\' || echo \'1\'')
+# os.system('[ \'Hola\' \<= \'Python\' ] && echo \'1\' || echo \'0\'')
+# os.system('[ \'Hola\' = \'Hola\' ] && echo \'0\' || echo \'1\'')
+# os.system('[ \'Hola\' != \'Python\' ] && echo \'1\' || echo \'0\'')
 
 
+
+# Operaciones con cadenas de texto
+os.system('[ \'Hola\' \> \'Python\' ] && echo \'1\' || echo \'0\'')
+os.system('[ \'Hola\' \< \'Python\' ] && echo \'0\' || echo \'1\'')
+os.system('[ \'aaaa\' \>= \'abaa\' ] && echo \'1\' || echo \'0\'')
+os.system('[ $(echo -n \'aaaa\' | wc -c) -ge $(echo -n \'abaa\' | wc -c) ] && echo \'0\' || echo \'1\'')
+os.system('[ \'Hola\' \<= \'Python\' ] && echo \'1\' || echo \'0\'')
+os.system('[ \'Hola\' = \'Hola\' ] && echo \'0\' || echo \'1\'')
+os.system('[ \'Hola\' != \'Python\' ] && echo \'1\' || echo \'0\'')
 
 # ///////////////////////////////////////////////# 
 # ///////////////////////////////////////////////
@@ -148,7 +153,9 @@ os.system('test 3 -gt 4 -a "Hola" \> "Python" && echo "0" || echo "1"')
 os.system('test 3 -gt 4 -o "Hola" \> "Python" && echo "0" || echo "1"')
 os.system('test 3 -lt 4 -a "Hola" \< "Python" && echo "0" || echo "1"')
 os.system('test 3 -lt 4 -o "Hola" \> "Python" && echo "0" || echo "1"')
-os.system('test 3 -lt 4 -o \( "Hola" \> "Python" -a 4 -eq 4 \) && echo "0" || echo "1"')
+# os.system('test 3 -lt 4 -o \( "Hola" \> "Python" -a 4 -eq 4 \) && echo "0" || echo "1"')
+# ERROR
+os.system('[ 3 -lt 4 ] && echo "0" || echo "1"')
 os.system('test \( 3 -gt 4 \) -eq 0 && echo "0" || echo "1"')
 
 
@@ -188,15 +195,35 @@ print("Operadores comparativos")
 
 # EJecuto desde python3 los comandos de bash
 
+# a = "Hola"
+# b = "Python"
+
+# igual = os.system(f'test "$a" = "$b" && echo "True" || echo "False"')
+# diferente = os.system(f'test "$a" != "$b" && echo "True" || echo "False"')
+# mayor = os.system(f'test "$a" \> "$b" && echo "True" || echo "False"')
+# menor = os.system(f'test "$a" \< "$b" && echo "True" || echo "False"')
+# mayor_igual = os.system(f'test "$a" \>= "$b" && echo "True" || echo "False"')
+# menor_igual = os.system(f'test "$a" \<= "$b" && echo "True" || echo "False"')
+
+# print(f"¿Es {a} igual a {b} ? {igual}")
+# print(f"¿Es {a} diferente a {b} ? {diferente}")
+# print(f"¿Es {a} mayor que {b} ? {mayor}")
+# print(f"¿Es {a} menor que {b} ? {menor}")
+# print(f"¿Es {a} mayor o igual que {b} ? {mayor_igual}")
+# print(f"¿Es {a} menor o igual que {b} ? {menor_igual}")
+
+# FALLAN LOS DOS PRIMEROS
+# import subprocess
+
 a = "Hola"
 b = "Python"
 
-igual = os.system(f'test "$a" = "$b" && echo "True" || echo "False"')
-diferente = os.system(f'test "$a" != "$b" && echo "True" || echo "False"')
-mayor = os.system(f'test "$a" \> "$b" && echo "True" || echo "False"')
-menor = os.system(f'test "$a" \< "$b" && echo "True" || echo "False"')
-mayor_igual = os.system(f'test "$a" \>= "$b" && echo "True" || echo "False"')
-menor_igual = os.system(f'test "$a" \<= "$b" && echo "True" || echo "False"')
+igual = subprocess.run(f'test "$a" = "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
+diferente = subprocess.run(f'test "$a" != "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
+mayor = subprocess.run(f'test "$a" \> "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
+menor = subprocess.run(f'test "$a" \< "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
+mayor_igual = subprocess.run(f'test "$a" \>= "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
+menor_igual = subprocess.run(f'test "$a" \<= "$b" && echo "True" || echo "False"', shell=True, stdout=subprocess.PIPE).stdout.decode().strip()
 
 print(f"¿Es {a} igual a {b} ? {igual}")
 print(f"¿Es {a} diferente a {b} ? {diferente}")
@@ -211,8 +238,36 @@ print(f"¿Es {a} menor o igual que {b} ? {menor_igual}")
 
 print("Operadores lógicos")
 
-# # EJecuto desde python3 los comandos de bash
+# # # EJecuto desde python3 los comandos de bash
 
+
+# c = 3
+# d = 4
+# a = "Hola"
+# b = "Python"
+
+# and_logico = os.system(f'test $c -gt $d -a "$a" \> "$b" && echo "True" || echo "False"')
+# or_logico = os.system(f'test $c -gt $d -o "$a" \> "$b" && echo "True" || echo "False"')
+# not_logico = os.system(f'test ! \( $c -gt $d \) && echo "True" || echo "False"')
+
+# print(f"El resultado de {c} > {d} and {a} > {b} es {and_logico}")
+# print(f"El resultado de {c} > {d} or {a} > {b} es {or_logico}")
+# print(f"El resultado de not {c} > {d} es {not_logico}")
+
+# import os
+
+# c = 3
+# d = 4
+# a = "Hola"
+# b = "Python"
+
+# and_logico = os.system(f'test $c -gt $d -a "$a" \> "$b" && echo "True" || echo "False"')
+# or_logico = os.system(f'test $c -gt $d -o "$a" \> "$b" && echo "True" || echo "False"')
+# not_logico = os.system(f'test \( $c -gt $d \) && echo "True" || echo "False"')
+
+# print(f"El resultado de {c} > {d} and {a} > {b} es {and_logico}")
+# print(f"El resultado de {c} > {d} or {a} > {b} es {or_logico}")
+# print(f"El resultado de not {c} > {d} es {not_logico}")
 
 c = 3
 d = 4
@@ -221,12 +276,11 @@ b = "Python"
 
 and_logico = os.system(f'test $c -gt $d -a "$a" \> "$b" && echo "True" || echo "False"')
 or_logico = os.system(f'test $c -gt $d -o "$a" \> "$b" && echo "True" || echo "False"')
-not_logico = os.system(f'test ! \( $c -gt $d \) && echo "True" || echo "False"')
+not_logico = os.system(f'test \( $c -gt $d \) && echo "True" || echo "False"')
 
 print(f"El resultado de {c} > {d} and {a} > {b} es {and_logico}")
 print(f"El resultado de {c} > {d} or {a} > {b} es {or_logico}")
 print(f"El resultado de not {c} > {d} es {not_logico}")
-
 
 # ////D///////////////////////////////////////////# 
 # ///////////////////////////////////////////////
