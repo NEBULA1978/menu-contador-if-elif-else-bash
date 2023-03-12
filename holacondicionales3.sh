@@ -14,34 +14,48 @@
 
 # fi
 
+# Ejemplo con mezcla de contador y comparador
 
-# Comparaciones strings3
-
-WORD_TO_TEST3="runtest33"
-WORD3="run33"
-WORD4="run43"
-WORD_TO_TEST4="runtest4"
-
-
-
-if ([ "$WORD_TO_TEST3" == "runtest3" ] || [ "$WORD3" == "run3" ] || [ "$WORD4" == "run4" ] || [ "$WORD_TO_TEST4" == "runtest4" ]); then
-
-echo "Running is fun!!"
-else
-echo "--------"
-fi
-
-
-# Ejemplo2
 CONTADOR=0
 
-#Cuando sea menor o igual
-while [ $CONTADOR -lt 6 ]; do
-    if [ $CONTADOR -eq 0 ]; then
-        echo "El contador es cero"
-    else
-        echo "El contador es diferente a cero"
-    fi
-    CONTADOR=$(($CONTADOR + 1))
-    sleep 3s
+while [ $CONTADOR -lt 6 ] || [ "$WORD_TO_TEST3" == "runtest3" ]; do
+if [ $CONTADOR -eq 0 ]; then
+echo "El contador es cero"
+else
+echo "El contador es diferente a cero"
+fi
+if [ "$WORD_TO_TEST3" == "runtest3" ]; then
+echo "La palabra WORD_TO_TEST3 es igual a runtest3"
+else
+echo "La palabra WORD_TO_TEST3 es diferente a runtest3"
+fi
+CONTADOR=$(($CONTADOR + 1))
+sleep 3s
 done
+
+# Este código ejecuta un bucle "while" que continuará ejecutándose hasta que se cumpla alguna de las dos condiciones:
+
+#     El contador sea menor que 6.
+#     La variable WORD_TO_TEST3 sea igual a "runtest3".
+
+# Dentro del bucle, hay una estructura de control "if-else" que evalúa el valor del contador y de la variable WORD_TO_TEST3 en cada iteración. Si el contador es igual a cero, se imprimirá "El contador es cero". De lo contrario, se imprimirá "El contador es diferente a cero". De igual manera, si la variable WORD_TO_TEST3 es igual a "runtest3", se imprimirá "La palabra WORD_TO_TEST3 es igual a runtest3". De lo contrario, se imprimirá "La palabra WORD_TO_TEST3 es diferente a runtest3".
+
+# Después de cada iteración, el contador se incrementa en 1 y se espera 3 segundos antes de continuar con la siguiente iteración.
+
+# La mezcla de comparaciones con el contador permite realizar múltiples evaluaciones y acciones en cada iteración del bucle.
+
+# el resultado por consola
+
+# El contador es cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+# El contador es diferente a cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+# El contador es diferente a cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+# El contador es diferente a cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+# El contador es diferente a cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+# El contador es diferente a cero
+# La palabra WORD_TO_TEST3 es diferente a runtest3
+
