@@ -38,6 +38,7 @@ import os
 # BIEN
 
 import subprocess
+echo "Operaciones con enteros"
 
 # Operaciones con enteros
 result = subprocess.run(["bash", "-c", "echo $((3 + 4))"], capture_output=True, text=True)
@@ -70,7 +71,7 @@ print(result.stdout)
 
 
 # EJecuto desde python3 los comandos de bash
-
+echo "Operaciones con cadenas de texto"
 # Operaciones con cadenas de texto
 os.system('echo "Hola " "Python " "¿Qué tal?"')
 os.system('echo "Hola " "$5"')
@@ -81,7 +82,7 @@ os.system('echo "Hola " "$5"')
 
 # EJecuto desde python3 los comandos de bash
 
-
+echo "Operaciones mixtas"
 # Operaciones mixtas
 os.system('echo "Hola " "Hola " "Hola " "Hola " "Hola "')
 os.system('echo "Hola " "Hola " "Hola " "Hola " "Hola " "Hola " "Hola "')
@@ -99,6 +100,7 @@ os.system(f'echo "Hola " {holas}')
 
 # EJecuto desde python3 los comandos de bash
 
+echo "Operaciones con enteros"
 # Operaciones con enteros
 os.system('test 3 -gt 4 && echo "0" || echo "1"')
 os.system('test 3 -lt 4 && echo "0" || echo "1"')
@@ -115,6 +117,7 @@ os.system('test 3 -ne 4 && echo "0" || echo "1"')
 
 # EJecuto desde python3 los comandos de bash
 
+echo "Operaciones con cadenas de texto"
 # Operaciones con cadenas de texto
 os.system('test "Hola" \> "Python" && echo "0" || echo "1"')
 os.system('test "Hola" \< "Python" && echo "0" || echo "1"')
@@ -134,6 +137,7 @@ os.system('test "Hola" != "Python" && echo "0" || echo "1"')
 
 import os
 
+echo "Basada en el Álgebra de Boole"
 # Basada en el Álgebra de Boole
 # (True es 0 y False es 1)
 os.system('test 3 -gt 4 -a "Hola" \> "Python" && echo "0" || echo "1"')
@@ -148,6 +152,7 @@ os.system('test \( 3 -gt 4 \) -eq 0 && echo "0" || echo "1"')
 # ////D///////////////////////////////////////////# 
 # ///////////////////////////////////////////////
 
+echo "Operadores aritméticos"
 
 # EJecuto desde python3 los comandos de bash
 
@@ -174,6 +179,7 @@ print("La potencia de {} elevado a {} es {}".format(x, y, potencia))
 # ////D///////////////////////////////////////////# 
 # ///////////////////////////////////////////////
 
+echo "Operadores comparativos"
 
 # EJecuto desde python3 los comandos de bash
 
@@ -198,7 +204,7 @@ print(f"¿Es {a} menor o igual que {b} ? {menor_igual}")
 # ////D///////////////////////////////////////////# 
 # ///////////////////////////////////////////////
 
-
+echo "Operadores lógicos"
 
 # # EJecuto desde python3 los comandos de bash
 
