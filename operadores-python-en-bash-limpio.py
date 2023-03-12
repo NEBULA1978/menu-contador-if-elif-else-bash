@@ -24,15 +24,45 @@ import os
 
 # EJecuto desde python3 los comandos de bash
 
+# MAL
 # Operaciones con enteros
-os.system("echo $((3 + 4))")
-os.system("echo $((3 - 4))")
-os.system("echo $((3 * 4))")
-os.system("echo $((3 / 4))")
-os.system("echo $((10 % 3))")
-os.system("echo $((10 / 3))")
-os.system("echo $((2 ** 3))")
-os.system("echo $((2 ** 3 + 3 - 7 / 1 / 4))")
+# os.system("echo $((3 + 4))")
+# os.system("echo $((3 - 4))")
+# os.system("echo $((3 * 4))")
+# os.system("echo $((3 / 4))")
+# os.system("echo $((10 % 3))")
+# os.system("echo $((10 / 3))")
+# os.system("echo $((2 ** 3))")
+# os.system("echo $((2 ** 3 + 3 - 7 / 4))")
+
+# BIEN
+
+import subprocess
+
+# Operaciones con enteros
+result = subprocess.run(["bash", "-c", "echo $((3 + 4))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((3 - 4))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((3 * 4))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((3 / 4))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((10 % 3))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((10 // 3))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((2 ** 3))"], capture_output=True, text=True)
+print(result.stdout)
+
+result = subprocess.run(["bash", "-c", "echo $((2 ** 3 + 3 - 7 / 4))"], capture_output=True, text=True)
+print(result.stdout)
 
 
 # ///////////////////////////////////////////////
