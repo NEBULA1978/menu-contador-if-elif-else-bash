@@ -33,15 +33,15 @@ fi
 
 
 # Ejemplo2
-# CONTADOR=0
+CONTADOR=0
 
-# #Cuando sea menor o igual
-# while [ $CONTADOR -lt 6 ]; do
-#     if [ $CONTADOR -eq 0 ]; then
-#         echo "El contador es cero"
-#     else
-#         echo "El contador es diferente a cero"
-#     fi
-#     CONTADOR=$(($CONTADOR + 1))
-#     sleep 3s
-# done
+#Cuando sea menor o igual
+while [ $CONTADOR -lt 6 ]; do
+    if [ $CONTADOR -eq 0 ]; then
+        echo "El contador es cero"
+    else
+        echo "El contador es diferente a cero"
+    fi
+    CONTADOR=$(($CONTADOR + 1))
+    sleep 3s
+done
