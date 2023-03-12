@@ -38,8 +38,8 @@ WORD4="run4"
 WORD_TO_TEST4="runtest4"
 
 
-WORD_TO_TEST="runtest3"
-if [ $WORD_TO_TEST3 == "runtest3" ] -o [ $WORD3 == "run3" ] -o [ $WORD4 == "run4" ]-o [ $WORD4 == "run4" ]; then
+
+if [ $WORD_TO_TEST3 == "runtest3" ] -o [ $WORD3 == "run3" ] -o [ $WORD4 == "run4" ]-o [ $WORD_TO_TEST4 == "runtest4" ]; then
 echo "Running is fun!!"
 else
 echo "--------"
