@@ -15,31 +15,31 @@
 # fi
 
 # Comparaciones strings
-WORD="run"
-if [ $WORD == "run" ]; then
-    echo "Run is fun!!"
-else
-    echo "--------"
+# WORD="run"
+# if [ $WORD == "run" ]; then
+#     echo "Run is fun!!"
+# else
+#     echo "--------"
 
-fi
+# fi
 # Comparaciones strings2
 
-WORD_TO_TEST="runtest"
-if [ $WORD_TO_TEST == "runtest" ] -o [ $WORD == "run" ] ; then
-echo "Running is fun!!"
-else
-echo "--------"
-fi
+# WORD_TO_TEST="runtest"
+# if [ $WORD_TO_TEST == "runtest" ] -o [ $WORD == "run" ] ; then
+# echo "Running is fun!!"
+# else
+# echo "--------"
+# fi
 # Comparaciones strings3
 
-WORD3="run3"
-WORD_TO_TEST3="runtest3"
-WORD4="run4"
+WORD3="run33"
+WORD_TO_TEST3="runtest33"
+WORD4="run43"
 WORD_TO_TEST4="runtest4"
 
 
-WORD_TO_TEST="runtest3"
-if [ $WORD_TO_TEST3 == "runtest3" ] -o [ $WORD3 == "run3" ] -o [ $WORD4 == "run4" ]-o [ $WORD4 == "run4" ]; then
+
+if ([ $WORD_TO_TEST3 == "runtest3" ] -o [ $WORD3 == "run3" ] -o [ $WORD4 == "run4" ] -o [ $WORD_TO_TEST4 == "runtest4" ]); then
 echo "Running is fun!!"
 else
 echo "--------"
