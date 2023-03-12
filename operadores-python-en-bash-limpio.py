@@ -38,7 +38,7 @@ import os
 # BIEN
 
 import subprocess
-echo "Operaciones con enteros"
+print("Operaciones con enteros")
 
 # Operaciones con enteros
 result = subprocess.run(["bash", "-c", "echo $((3 + 4))"], capture_output=True, text=True)
