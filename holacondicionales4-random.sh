@@ -146,8 +146,39 @@
 
 # El código actualizado para que los números después de -eq también sean aleatorios:
 
+# El problema es que la variable INTENTOS solo se está actualizando dentro del else y no dentro del if. Para solucionar este problema, se debe actualizar la variable INTENTOS tanto dentro del if como dentro del else:
+
+# CONTADOR=0
+# INTENTOS=0
+# NUM_TO_COMPARE=0
+
+# while [ $CONTADOR -lt 6 ]; do
+# NUM1=$((RANDOM % 10 + 1))
+# NUM2=$((RANDOM % 10 + 1))
+# NUM3=$((RANDOM % 10 + 1))
+# NUM4=$((RANDOM % 10 + 1))
+# NUM_TO_TEST1=$((RANDOM % 10 + 1))
+# NUM_TO_TEST2=$((RANDOM % 10 + 1))
+# NUM_TO_TEST3=$((RANDOM % 10 + 1))
+# NUM_TO_TEST4=$((RANDOM % 10 + 1))
+
+# if [ $CONTADOR -eq "$NUM_TO_COMPARE" ] || [ $NUM1 -eq "$NUM_TO_TEST1" ] || [ $NUM2 -eq "$NUM_TO_TEST2" ] || [ $NUM3 -eq "$NUM_TO_TEST3" ] || [ $NUM4 -eq "$NUM_TO_TEST4" ]; then
+# echo "Intento $INTENTOS: Número correcto"
+# INTENTOS=$(($INTENTOS + 1))
+# else
+# echo "Intento $INTENTOS: El número $CONTADOR no es correcto"
+# INTENTOS=$(($INTENTOS + 1))
+# fi
+# CONTADOR=$(($CONTADOR + 1))
+# sleep 1s
+# done
+
+# //////////////////////////////////////////////////////////////////
+# //////////////////////////////////////////////////////////////////
+
 CONTADOR=0
 INTENTOS=0
+NUM_TO_COMPARE=0
 
 while [ $CONTADOR -lt 6 ]; do
 NUM1=$((RANDOM % 10 + 1))
@@ -159,8 +190,9 @@ NUM_TO_TEST2=$((RANDOM % 10 + 1))
 NUM_TO_TEST3=$((RANDOM % 10 + 1))
 NUM_TO_TEST4=$((RANDOM % 10 + 1))
 
-if [ $CONTADOR -eq 0 ] || [ $NUM1 -eq $NUM_TO_TEST1 ] || [ $NUM2 -eq $NUM_TO_TEST2 ] || [ $NUM3 -eq $NUM_TO_TEST3 ] || [ $NUM4 -eq $NUM_TO_TEST4 ]; then
-echo "Running is fun!!"
+if [ $CONTADOR -eq "$NUM_TO_COMPARE" ] || [ $NUM1 -eq "$NUM_TO_TEST1" ] || [ $NUM2 -eq "$NUM_TO_TEST2" ] || [ $NUM3 -eq "$NUM_TO_TEST3" ] || [ $NUM4 -eq "$NUM_TO_TEST4" ]; then
+echo "Intento $INTENTOS: Número correcto ($CONTADOR)"
+INTENTOS=$(($INTENTOS + 1))
 else
 echo "Intento $INTENTOS: El número $CONTADOR no es correcto"
 INTENTOS=$(($INTENTOS + 1))
@@ -168,3 +200,13 @@ fi
 CONTADOR=$(($CONTADOR + 1))
 sleep 1s
 done
+
+# RESULTADO POR CONSOLA
+
+# ./holacondicionales4-random.sh
+# Intento 0: Número correcto (0)
+# Intento 1: El número 1 no es correcto
+# Intento 2: El número 2 no es correcto
+# Intento 3: El número 3 no es correcto
+# Intento 4: Número correcto (4)
+# Intento 5: El número 5 no es correcto
